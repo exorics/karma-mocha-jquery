@@ -1,0 +1,12 @@
+{
+  "name": "cbweb",
+  "version": "0.0.0",
+  "authors": [
+    "exorics <sixdayj@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "chai-jquery": "~2.0.1",
+    "jquery": "~1.11.3"
+  }
+}
