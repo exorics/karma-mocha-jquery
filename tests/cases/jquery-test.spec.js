@@ -12,12 +12,11 @@ define(function(require, exports, module) {
         });
 
         before(function() {
-            $('body').empty();
             $('body').append(fixtures);
         });
 
         after(function() {
-            $('body').empty();
+            $('#fixtures').remove();
         });
 
         it('jquery version is 1.11.0', function() {

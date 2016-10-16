@@ -2,7 +2,6 @@ define(function(require, exports, module) {
 
     describe('Plugin cpn test suite', function() {
         var cpn = require('plugin/cpn');
-        var expect = window.expect;
 
         // beforeEach(function() {
         // 
