@@ -2,96 +2,101 @@
 // Generated on Fri Oct 07 2016 22:53:03 GMT+0800 (CST)
 
 module.exports = function(config) {
-  config.set({
+    config.set({
 
-    // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
-
-
-    // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha','seajs','chai','fixture'],
-
-    plugins: [
-        'karma-mocha',
-        'karma-chai',
-        'karma-seajs',
-        'karma-chrome-launcher',
-        'karma-coverage',
-        'karma-mocha-reporter',
-        'karma-fixture',
-        'karma-html2js-preprocessor'
-    ],
-
-    // list of files / patterns to load in the browser
-    files: [
-      'src/**/*.js',
-      'tests/**/*.js'
-    ],
+        // base path that will be used to resolve all patterns (eg. files, exclude)
+        basePath: '',
 
 
-    // list of files to exclude
-    exclude: [
-    ],
+        // frameworks to use
+        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+        frameworks: ['mocha', 'chai-jquery', 'seajs', 'chai', 'fixture', 'jquery-1.6.4'],
+
+        plugins: [
+            'karma-chai',
+            'karma-chai-jquery',
+            'karma-chrome-launcher',
+            'karma-coverage',
+            'karma-fixture',
+            'karma-html2js-preprocessor',
+            'karma-jquery',
+            'karma-mocha',
+            'karma-mocha-reporter',
+            'karma-seajs'
+
+        ],
+
+        // list of files / patterns to load in the browser
+        files: [
+            'src/**/*.js',
+            'tests/cases/**/*.js',
+            'tests/test-main.js'
+        ],
 
 
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-        'src/**/*.js': 'coverage',
-        'tests/**/*.html' : ['html2js']
-
-    },
+        // list of files to exclude
+        exclude: [],
 
 
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['mocha', 'coverage'],
+        // preprocess matching files before serving them to the browser
+        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+        preprocessors: {
+            'src/**/*.js': ['coverage'],
+            'tests/**/*.html': ['html2js']
 
-    coverageReporter: {
-        // cf. http://gotwarlost.github.com/istanbul/public/apidocs/
-        type: 'html',
-        dir: 'coverage/'
-    },
+        },
 
 
-    // web server port
-    port: 9876,
+        // test results reporter to use
+        // possible values: 'dots', 'progress'
+        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+        reporters: ['mocha', 'coverage'],
+
+        coverageReporter: {
+            // cf. http://gotwarlost.github.com/istanbul/public/apidocs/
+            type: 'html',
+            dir: 'coverage/'
+        },
 
 
-    // enable / disable colors in the output (reporters and logs)
-    colors: true,
+        // web server port
+        port: 9876,
 
 
-    // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+        // enable / disable colors in the output (reporters and logs)
+        colors: true,
 
 
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+        // level of logging
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+        logLevel: config.LOG_INFO,
 
 
-    // start these browsers
-    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+        // enable / disable watching file and executing tests whenever any file changes
+        autoWatch: true,
 
 
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+        // start these browsers
+        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+        browsers: ['Chrome'],
 
-    // Concurrency level
-    // how many browser should be started simultaneous
-    concurrency: Infinity,
 
-    client: {
-      mocha: {
-        // change Karma's debug.html to the mocha web reporter
-        reporter: 'html'
-      }
-    }
+        // Continuous Integration mode
+        // if true, Karma captures browsers, runs the tests and exits
+        singleRun: false,
 
-  })
+        // Concurrency level
+        // how many browser should be started simultaneous
+        concurrency: Infinity,
+
+        client: {
+            mocha: {
+                // change Karma's debug.html to the mocha web reporter
+                reporter: 'html'/*,
+                require: [require.resolve('bdd-lazy-var/bdd_lazy_var_global')],
+                ui: 'bdd-lazy-var/global'*/
+            }
+        }
+
+    })
 }

@@ -1,3 +1,4 @@
+
 (function(__karma__, seajs) {
 
     var tests = [],
@@ -5,37 +6,35 @@
 
 
     var alias = {
-        // 'karma-demo':'src/demo/karma-demo.js',
-        'cpn' : 'src/plugin/cpn.js',
-        'jquery' : 'src/jquery.js',
-        'chai-jquery' : 'src/chai-jquery.js'
+        // your special include here
+
     };
+
     console.log(__karma__.files);
     for (file in __karma__.files) {
         if (__karma__.files.hasOwnProperty(file)) {
+
+            //所有的测试用例代码文件以spec结尾
             if (/spec\.js$/i.test(file)) {
-                tests.push(file); //所有的测试用例代码文件以spec结尾
+                tests.push(file);
             }
 
-            /*
+            //获取src目录下的文件路径作为seajs模块的key
             if (/\/src\//.test(file)) {
-                var name = file.match(/\/src\/([^.]+)\.js/)[1]; //获取src目录下的文件路径作为seajs模块的key
+                var name = file.match(/\/src\/([^.]+)\.js/)[1];
                 alias[name] = file;
             }
-            */
         }
     }
 
     seajs.config({
-        base:'/base',
+        base: '/base',
         alias: alias
     });
-    tests.push("jquery");
-    tests.push("chai-jquery");
+
     var __start = __karma__.start;
     __karma__.start = function() {};
     seajs.use(tests, function() {
-        console.log(1);
         __start.call(); //要在seajs模块载入后调用,否则会加载不到任何测试用例
     });
 
