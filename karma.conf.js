@@ -10,7 +10,7 @@ module.exports = function(config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['mocha', 'chai-jquery', 'seajs', 'chai', 'fixture', 'jquery-1.6.4'],
+        frameworks: ['mocha', 'chai-jquery', 'seajs', 'chai', 'fixture', 'jquery-1.11.0'],
 
         plugins: [
             'karma-chai',
@@ -58,7 +58,6 @@ module.exports = function(config) {
             dir: 'coverage/'
         },
 
-
         // web server port
         port: 9876,
 
@@ -92,9 +91,10 @@ module.exports = function(config) {
         client: {
             mocha: {
                 // change Karma's debug.html to the mocha web reporter
-                reporter: 'html'/*,
-                require: [require.resolve('bdd-lazy-var/bdd_lazy_var_global')],
-                ui: 'bdd-lazy-var/global'*/
+                reporter: 'html'
+                    /*,
+                    require: [require.resolve('bdd-lazy-var/bdd_lazy_var_global')],
+                    ui: 'bdd-lazy-var/global'*/
             }
         }
 

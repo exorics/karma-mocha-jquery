@@ -10,7 +10,7 @@
 
     };
 
-    console.log(__karma__.files);
+    // console.log(__karma__.files);
     for (file in __karma__.files) {
         if (__karma__.files.hasOwnProperty(file)) {
 

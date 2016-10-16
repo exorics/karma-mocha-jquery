@@ -10,7 +10,6 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
-    "jsdom": "^9.7.1",
     "karma": "^1.3.0",
     "karma-chai": "^0.1.0",
     "karma-chai-jquery": "^1.0.0",
