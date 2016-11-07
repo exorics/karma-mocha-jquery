@@ -20,7 +20,6 @@
 
             //获取src目录下的文件路径作为seajs模块的key
             if (/\/src\//.test(file)) {
-
                 var name = file.match(/\/src\/([^.]+)\.js/)[1];
                 alias[name] = file;
             }
@@ -28,14 +27,13 @@
     }
 
     seajs.config({
-        base: '/',
+        base: '/base/src',
         alias: alias
     });
 
     var __start = __karma__.start;
     __karma__.start = function() {};
     seajs.use(tests, function() {
-        // console.log(__start);
         __start.call(); //要在seajs模块载入后调用,否则会加载不到任何测试用例
     });
 

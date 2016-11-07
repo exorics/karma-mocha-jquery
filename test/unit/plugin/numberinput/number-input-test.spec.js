@@ -1,4 +1,3 @@
-// seajs.use(['/base/src/plugin/numberinput/numberinput.js','/base/src/plugin/typed'], function() {
 define(function (require, exports, module) {
     require('/base/src/plugin/numberinput/numberinput');
     require('/base/src/plugin/typed');
@@ -47,5 +46,4 @@ define(function (require, exports, module) {
             },1500);
         });
     });
-
 });
