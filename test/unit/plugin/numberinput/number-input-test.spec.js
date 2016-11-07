@@ -1,7 +1,8 @@
-define(function(require, exports, module) {
-
+// seajs.use(['/base/src/plugin/numberinput/numberinput.js','/base/src/plugin/typed'], function() {
+define(function (require, exports, module) {
+    require('/base/src/plugin/numberinput/numberinput');
+    require('/base/src/plugin/typed');
     describe('number input test suite', function() {
-        require('plugin/numberinput/numberinput');
 
         var fixtures = '<div id="fixtures">\
                             <input id="inputField" type="text" format="amount"/>\
@@ -25,26 +26,25 @@ define(function(require, exports, module) {
             $('fixtures').remove();
         });
 
-        it('getValue ', function() {
+        it('getValue ', function(done) {
             expect($('#inputField').val()).to.be.equals("");
             expect($('#inputField').numberInput("setValue", "222").val()).to.be.equals("222.00");
             expect($('#inputField').numberInput("setValue", "").val()).to.be.equals("");
 
-            // $('#inputField').trigger("focus");
+            $('#inputField').trigger("focus");
 
-            // $('input:first').val('1');
+            $('#inputField').trigger("blur");
+            $('input').typed({
+                strings: ["11.1"],
+                typeSpeed: 0
+            });
 
-            // var e = $.Event("keypress", { keyCode: 49 });
-            // $('input:first').trigger(e);
-
-            // $('#inputField').trigger("blur");
-            // console.log( $('input:first').val());
-            // expect($('#inputField').val()).to.be.equals("1.00");
-            
-        });
-
-        it('getValueFormated ', function() {
-            // expect($('#inputField').numberInput("getValueFormated")).to.be.equals("0.00");
+            setTimeout(function() {
+                $('input').blur();
+                console.log($('#inputField').val());
+                expect($('#inputField').val()).to.be.equals("11.10");
+                done();
+            },1500);
         });
     });
 
